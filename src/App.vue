@@ -9,6 +9,7 @@
     <works></works>
     <skills></skills>
   </sections-wrapper>
+  <h1>Hallo</h1>
   <!-- <section id="id2"></section>
     <section id="id3"></section>
     <section id="id4"></section> -->
@@ -92,24 +93,14 @@ section {
   width: 100%;
   height: 100vh;
 }
-
 .fixed {
   position: fixed;
   top: 0;
 }
 .wrapper {
-  height: 5000px;
+  height: 2000px;
   width: 100%;
   position: relative;
-}
-
-footer {
-  height: 300px;
-  width: 100%;
-  background-color: blue;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 #id1 {

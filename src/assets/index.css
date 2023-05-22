@@ -4,6 +4,7 @@
 
 body {
   color: #e4e4e7;
+  overflow-x: hidden;
 }
 
 @layer components {

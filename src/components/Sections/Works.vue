@@ -12,7 +12,7 @@
 <style scoped>
 section {
   height: 100%;
-  background-color: rgba(255, 54, 4, 1);
+  /* background-color: rgba(255, 54, 4, 1); */
   position: absolute;
   width: 100%;
   z-index: 2;
