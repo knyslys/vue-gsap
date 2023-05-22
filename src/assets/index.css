@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #e4e4e7;
+}
+
+@layer components {
+  p,
+  h1 {
+    color: ;
+  }
+}
