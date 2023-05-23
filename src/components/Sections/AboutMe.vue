@@ -46,6 +46,7 @@ onMounted(() => {
 section {
   height: 100%;
   position: absolute;
+
   width: 100%;
   z-index: 1;
   top: 0;

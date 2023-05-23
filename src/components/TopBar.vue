@@ -1,7 +1,7 @@
 <template>
   <div
     ref="el"
-    class="top-bar p-4 bg-opacity-100"
+    class="top-bar p-4 bg-opacity-100 bg-zinc-900"
     :class="{ fixed: showTopBar }"
   ></div>
 </template>
@@ -14,14 +14,15 @@ import { useElementVisibility } from "@vueuse/core";
 const scrolledTop = ref();
 const el = ref(null);
 const headerIsVisible = useElementVisibility(document.querySelector("header"));
+const topNavIsVisible = useElementVisibility(el);
 const showTopBar = ref(false);
 
 gsap.registerPlugin(Flip);
 
-watch(headerIsVisible, (newValue, oldValue) => {
-  if (!newValue) {
+watch([headerIsVisible, topNavIsVisible], ([newValHead, newValueNav]) => {
+  if (!newValHead) {
     setFixed();
-  } else resetFixed();
+  } else if (newValHead) resetFixed();
 });
 
 const setFixed = async () => {
@@ -43,7 +44,7 @@ const resetFixed = () => {
   Flip.from(headerTextState, {
     duration: 1,
     scale: 1,
-    fontSize: 50,
+    fontSize: 48,
     autoRound: false,
     lineHeight: "27px",
     ease: "power1.out",

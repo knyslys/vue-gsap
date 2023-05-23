@@ -1,26 +1,27 @@
 <template>
-  <the-header></the-header>
+  <the-header @show-main="showMain"></the-header>
+  <main>
+    <top-bar></top-bar>
 
-  <top-bar></top-bar>
-
-  <!-- <section id="id1" class="test" ref="xxx"></section> -->
-  <sections-wrapper>
-    <about-me></about-me>
-    <works></works>
-    <skills></skills>
-  </sections-wrapper>
-  <h1>Hallo</h1>
-  <!-- <section id="id2"></section>
+    <!-- <section id="id1" class="test" ref="xxx"></section> -->
+    <sections-wrapper>
+      <about-me></about-me>
+      <works></works>
+      <skills></skills>
+    </sections-wrapper>
+    <h1>Hallo</h1>
+    <!-- <section id="id2"></section>
     <section id="id3"></section>
     <section id="id4"></section> -->
 
-  <div class="wrapper"><footer></footer></div>
+    <div class="wrapper"><footer></footer></div>
 
-  <!-- <main></main> -->
+    <!-- <main></main> -->
+  </main>
 </template>
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import TopBar from "./components/TopBar.vue";
 import TheHeader from "./components/TheHeader.vue";
 import SectionsWrapper from "./components/Sections/SectionsWrapper.vue";
@@ -29,10 +30,14 @@ import Works from "./components/Sections/Works.vue";
 import Skills from "./components/Sections/Skills.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+const headerDisplayed = ref(false);
 const xxx = ref(null);
 gsap.registerPlugin(ScrollTrigger);
 // gsap.registerPlugin(Flip);
+
+const showMain = () => {
+  headerDisplayed.value = true;
+};
 
 const test = () => {
   // let state = Flip.getState(".name");
@@ -42,7 +47,9 @@ const test = () => {
   // Flip.from(state, { duration: 1, ease: "power1.out" });
   // document.querySelector(".top-bar").classList.add("fixed");
 };
-
+onBeforeUnmount(() => {
+  window.scrollTo(0, 0);
+});
 onMounted(() => {
   // yes, we can add it to an entire timeline!
   // scrollTrigger: {
@@ -86,13 +93,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-section {
+/* section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-}
+} */
 .fixed {
   position: fixed;
   top: 0;
