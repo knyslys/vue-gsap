@@ -34,7 +34,7 @@ import SplitType from "split-type";
 import { Icon } from "@iconify/vue";
 
 const emits = defineEmits(["show-main"]);
-//now animate each character into place from 100px above, fading in:
+
 onMounted(() => {
   console.log(document.querySelector(".top-bar"));
   let splitName = SplitType.create(".name");

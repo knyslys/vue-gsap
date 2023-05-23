@@ -82,19 +82,17 @@ onMounted(() => {
     .to("#about", {
       xPercent: 0,
       autoAlpha: 0,
+      duration: 0.5,
     })
     .to("#about", {
-      xPercent: 200,
+      // xPercent: 200,
+      display: "none",
     })
     .from("#works", {
       display: "none",
       xPercent: 0,
       autoAlpha: 0,
-    })
-    .to("#works", {
-      autoAlpha: 0,
-      visibility: "hidden",
-      // xPercent: 200,
+      duration: 0.5,
     })
     .to("#works", {
       autoAlpha: 0,
@@ -115,7 +113,7 @@ onMounted(() => {
     trigger: ".section-wrapper",
     // scroller: ".section-wrapper",
     start: "top top",
-    end: "bottom -500%",
+    end: "bottom -800%",
     scrub: true,
     pin: true,
     type: "touch,wheel,pointer",

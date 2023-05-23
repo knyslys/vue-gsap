@@ -2,15 +2,15 @@
   <the-header @show-main="showMain"></the-header>
   <main>
     <!-- v-if="headerDisplayed" -->
-    <top-bar></top-bar>
+    <!-- <top-bar></top-bar> -->
 
     <!-- <section id="id1" class="test" ref="xxx"></section> -->
-    <sections-wrapper>
+    <!-- <sections-wrapper>
       <about-me></about-me>
       <works></works>
       <skills></skills>
-    </sections-wrapper>
-    <h1>Hallo</h1>
+    </sections-wrapper> -->
+    <creativity-scroll></creativity-scroll>
     <!-- <section id="id2"></section>
     <section id="id3"></section>
     <section id="id4"></section> -->
@@ -31,6 +31,7 @@ import Works from "./components/Sections/Works.vue";
 import Skills from "./components/Sections/Skills.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import CreativityScroll from "./components/Creativity/CreativityScroll.vue";
 const headerDisplayed = ref(false);
 const xxx = ref(null);
 gsap.registerPlugin(ScrollTrigger);
