@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery mt-4 relative" ref="el">
+  <div class="gallery mt-6 relative" ref="el">
     <div
       class="absolute top-2/4 -translate-y-2/4 right-0 text-5xl cursor-pointer duration-500 hover:translate-x-2"
       @click="swiperRef.slideNext()"
@@ -14,6 +14,7 @@
     </div>
     <swiper
       @swiper="onSwiper"
+      @slideChange="changeDescIndex"
       :effect="'coverflow'"
       :grabCursor="true"
       :centeredSlides="true"
@@ -30,8 +31,8 @@
       :modules="modules"
       class="mySwiper max-w-md"
     >
-      <swiper-slide v-for="img in works"
-        ><work-image :img="img.img" :name="img.name"></work-image
+      <swiper-slide v-for="(img, index) in works"
+        ><work-image :img="img.img" :name="img.name" :key="index"></work-image
       ></swiper-slide>
     </swiper>
   </div>
@@ -52,7 +53,10 @@ import gsap from "gsap";
 const el = ref(null);
 const swiperRef = ref();
 const elIsVisible = useElementVisibility(el);
+const workIndex = ref(0);
 const modules = [EffectCoverflow, Pagination];
+const emits = defineEmits(["change-desc"]);
+
 const works = [
   {
     name: "Chatzy",
@@ -101,6 +105,15 @@ watch(elIsVisible, (newValue, oldValue) => {
   }
 });
 
+const changeDescIndex = (sl) => {
+  workIndex.value = sl.activeIndex;
+  emits(
+    "change-desc",
+    works[workIndex.value].desc,
+    works[workIndex.value].name
+  );
+  console.log(sl.activeIndex);
+};
 const playAnim = () => {
   let tl = gsap.timeline();
 
@@ -117,14 +130,14 @@ const playAnim = () => {
   );
 };
 
-onMounted(() => {
-  // console.log(style.opacity);
-  // gsap.to(".gallery", {
-  //   y: 20,
-  // });
-});
+onMounted(() => {});
 const onSwiper = (sl) => {
   swiperRef.value = sl;
+  emits(
+    "change-desc",
+    works[workIndex.value].desc,
+    works[workIndex.value].name
+  );
 };
 </script>
 

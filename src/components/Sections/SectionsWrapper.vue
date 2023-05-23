@@ -7,7 +7,7 @@
           class="list-wrapper fixed top-[10vh] left-[3vh] w-full lg:top-2/4 lg:left-[15vw] lg:w-auto lg:translate-x-2/4 lg:-translate-y-2/4"
         >
           <ul
-            class="flex gap-x-5 justify-start md:justify-center lg:flex-col gap-y-4"
+            class="flex gap-x-5 justify-start md:justify-center lg:flex-col gap-y-6"
             v-if="showList"
           >
             <AboutMeList></AboutMeList>

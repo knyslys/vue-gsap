@@ -1,13 +1,13 @@
 <template>
-  <li class="list flex place-items-center gap-x-2 text-xl" ref="ss">
+  <li class="list flex place-items-center gap-x-2 text-xl lg:text-4xl" ref="ss">
     <span>About</span>
     <div class="about-circlecheck h-2 w-2 bg-white rounded-full"></div>
   </li>
-  <li class="list flex place-items-center gap-x-2 text-xl" ref="ss">
+  <li class="list flex place-items-center gap-x-2 text-xl lg:text-4xl" ref="ss">
     <span>Works</span>
     <div class="about-circlecheck h-2 w-2 bg-white rounded-full ml-auto"></div>
   </li>
-  <li class="list flex place-items-center gap-x-2 text-xl" ref="ss">
+  <li class="list flex place-items-center gap-x-2 text-xl lg:text-4xl" ref="ss">
     <span>Skills</span>
     <div class="about-circlecheck h-2 w-2 bg-white rounded-full ml-auto"></div>
   </li>
