@@ -1,6 +1,7 @@
 <template>
   <the-header @show-main="showMain"></the-header>
   <main>
+    <!-- v-if="headerDisplayed" -->
     <top-bar></top-bar>
 
     <!-- <section id="id1" class="test" ref="xxx"></section> -->

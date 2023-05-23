@@ -1,5 +1,8 @@
 <template>
-  <section id="skills" class="section-panel flex flex-col place-content-center">
+  <section
+    id="skills"
+    class="section-panel flex flex-col place-content-center p-4"
+  >
     <div class="about-text flex flex-col gap-y-2">
       <h1 class="text-4xl">Skills</h1>
       <p>

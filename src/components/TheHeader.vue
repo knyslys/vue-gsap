@@ -1,6 +1,6 @@
 <template>
   <header
-    class="min-h-screen flex flex-col place-content-center bg-zinc-200 relative overflow-hidden"
+    class="min-h-screen flex flex-col place-content-center bg-zinc-700 relative overflow-hidden"
   >
     <div class="box absolute top-2/4 left-2/4 h-10 w-10 bg-zinc-900"></div>
     <container>
@@ -67,7 +67,14 @@ onMounted(() => {
       left: 0,
       duration: 2.5,
       // ease: "slow(0.1, 2, false)",
-    });
+    })
+    .to(
+      "header",
+      {
+        backgroundColor: "rgb(24 24 27)",
+      },
+      "-=2"
+    );
 
   let nameAnimation = gsap.from(splitName.chars, {
     duration: 1,

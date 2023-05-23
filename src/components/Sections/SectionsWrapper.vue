@@ -1,11 +1,18 @@
 <template>
   <div class="bg-zinc-900">
-    <div class="container mx-auto grid grid-cols-2 relative">
+    <div class="mx-auto grid grid-cols-1 lg:grid-cols-2 relative">
       <div></div>
-      <div class="list-wrapper fixed top-2/4 left-[10vh]">
-        <ul class="flex flex-col gap-y-5" v-if="showList">
-          <AboutMeList></AboutMeList>
-        </ul>
+      <div class="absolute top-0 w-full h-full">
+        <div
+          class="list-wrapper fixed top-[10vh] left-[3vh] w-full lg:top-2/4 lg:left-[15vw] lg:w-auto lg:translate-x-2/4 lg:-translate-y-2/4"
+        >
+          <ul
+            class="flex gap-x-5 justify-start md:justify-center lg:flex-col gap-y-4"
+            v-if="showList"
+          >
+            <AboutMeList></AboutMeList>
+          </ul>
+        </div>
       </div>
       <div class="section-wrapper" ref="el">
         <slot></slot>
@@ -15,6 +22,7 @@
 </template>
 
 <script setup>
+// top-2/4 -translate-y-2/4 left-[10vh]
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted, ref, watch } from "vue";
@@ -70,36 +78,35 @@ onMounted(() => {
     .from("#about", {
       xPercent: 200,
       autoAlpha: 0,
-      duration: 3,
     })
     .to("#about", {
       xPercent: 0,
       autoAlpha: 0,
-      duration: 3,
     })
     .to("#about", {
       xPercent: 200,
     })
     .from("#works", {
-      xPercent: 200,
+      display: "none",
+      xPercent: 0,
       autoAlpha: 0,
-      duration: 3,
     })
     .to("#works", {
       autoAlpha: 0,
-      duration: 3,
+      visibility: "hidden",
+      // xPercent: 200,
     })
     .to("#works", {
-      xPercent: 200,
+      autoAlpha: 0,
+      display: "none",
     })
     .from("#skills", {
       autoAlpha: 0,
-      xPercent: 200,
-      duration: 3,
+      display: "none",
+      // xPercent: 200,
     })
     .to("#skills", {
       autoAlpha: 0,
-      duration: 3,
     })
     .to("#skills", { yPercent: 200 });
 
@@ -107,10 +114,12 @@ onMounted(() => {
     animation: testt,
     trigger: ".section-wrapper",
     // scroller: ".section-wrapper",
-    start: "center center",
+    start: "top top",
     end: "bottom -500%",
     scrub: true,
     pin: true,
+    type: "touch,wheel,pointer",
+    // normalizeScroll: true,
     onToggle: () => {
       showList.value = true;
     },
@@ -130,7 +139,7 @@ onMounted(() => {
     onUpdate: () => {
       checkValues();
     },
-    markers: true,
+    // markers: true,
     // pinSpacing: true,
     anticipatePin: 1,
     // onUpdate: checkValues,
@@ -147,13 +156,14 @@ const setHeightToWrapper = () => {
 const checkValues = (i) => {
   if (!showList.value) return;
   checkBoxes = document?.querySelectorAll(".about-circlecheck");
-  if (ScrollTrigger.isInViewport("#about", 1, true)) {
+  if (ScrollTrigger.isInViewport("#about", 0.2, true)) {
+    console.log("esu ekrane");
     checkBoxes.forEach((c) => c.classList.remove("green"));
     checkBoxes[0].classList.add("green");
-  } else if (ScrollTrigger.isInViewport("#works", 1, true)) {
+  } else if (ScrollTrigger.isInViewport("#works", 0.2, true)) {
     checkBoxes.forEach((c) => c.classList.remove("green"));
     checkBoxes[1].classList.add("green");
-  } else if (ScrollTrigger.isInViewport("#skills", 1, true)) {
+  } else if (ScrollTrigger.isInViewport("#skills", 0.2, true)) {
     checkBoxes.forEach((c) => c.classList.remove("green"));
     checkBoxes[2].classList.add("green");
   }

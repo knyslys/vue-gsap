@@ -3,12 +3,29 @@
 @tailwind utilities;
 
 body {
-  color: #e4e4e7;
+  color: rgb(212 212 216);
+}
+p,
+h1,
+span {
+  color: var(--text-zinc-300);
+}
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+  border: 1px solid black;
+  transition: 1s all linear;
+}
+.swiper-pagination-bullet-active {
+  background-color: green !important;
+  border: 1px solid black;
+  transition: 1s all linear;
+  transform: scale(2.2);
 }
 
 @layer components {
   p,
-  h1 {
-    color: ;
+  h1,
+  span {
+    color: @apply text-zinc-300;
   }
 }

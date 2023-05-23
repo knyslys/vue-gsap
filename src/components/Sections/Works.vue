@@ -13,10 +13,13 @@
         ipsum ullam fuga, et autem excepturi, ea odit est aliquam!
       </p>
     </div>
+    <works-gallery></works-gallery>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import WorksGallery from "./Works/WorksGallery.vue";
+</script>
 
 <style scoped>
 section {
