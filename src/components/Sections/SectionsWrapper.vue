@@ -28,49 +28,21 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted, ref, watch } from "vue";
 import { useElementVisibility } from "@vueuse/core";
 import AboutMeList from "../AboutMeList.vue";
+gsap.registerPlugin(ScrollTrigger);
 const showList = ref(false);
 const el = ref(null);
 const ss = ref(null);
-gsap.registerPlugin(ScrollTrigger);
 let checkBoxes;
 let sectionPanels;
 let listAnim;
+
 const aboutVisible = useElementVisibility(el);
 watch(aboutVisible, (newValue, oldValue) => {
   console.log(newValue);
-
-  // showList.value = newValue;
 });
 
 onMounted(() => {
-  sectionPanels = document.querySelectorAll(".section-panel");
-  setHeightToWrapper();
-  // const itemNumber = document.querySelector(".item-number");
-  // const sections = gsap.utils.toArray(".section-panel");
-
-  // sections.forEach((section, i) => {
-  //   ScrollTrigger.create({
-  //     trigger: section,
-  //     start: "top top",
-  //     end: "bottom bottom",
-  //     markers: true,
-  //     onToggle: (self) => {
-  //       console.log(i);
-  //       // checkBoxes.forEach((checkBox) => {
-  //       //   checkBoxes[i].classList.remove("green");
-  //       //   console.log(checkBox);
-  //       // });
-  //       // checkBoxes[i].classList.add("green");
-  //       // gsap.to(checkBoxes[i]),
-  //       //   {
-  //       //     duration: 0.2,
-  //       //     opacity: self.isActive ? 1 : 0.2, // if active then 1 or else 0.5
-  //       //     color: self.isActive ? "red" : "black",
-  //       //   }; // if active then white or else black
-  //     },
-  //     // onLeaveBack: () => (itemNumber.innerText = i),
-  //   });
-  // });
+  sectionPanels = document.querySelectorAll(".header");
 
   let testt = gsap.timeline();
 
@@ -92,7 +64,6 @@ onMounted(() => {
       display: "none",
       xPercent: 0,
       autoAlpha: 0,
-      duration: 0.5,
     })
     .to("#works", {
       autoAlpha: 0,
@@ -143,14 +114,7 @@ onMounted(() => {
     // onUpdate: checkValues,
   });
 });
-const setHeightToWrapper = () => {
-  // sectionPanels = document.querySelectorAll(".section-panel");
-  // let h;
-  // sectionPanels.forEach((e) => {
-  //   h += e.innerWidth;
-  // });
-  // el.value.innerHeight = h;
-};
+
 const checkValues = (i) => {
   if (!showList.value) return;
   checkBoxes = document?.querySelectorAll(".about-circlecheck");
@@ -166,33 +130,6 @@ const checkValues = (i) => {
     checkBoxes[2].classList.add("green");
   }
 };
-
-// document.querySelectorAll(".about-circlecheck").forEach((el, i) => {
-//   el.classList.add("green");
-// });
-// document.querySelectorAll(".section-panel").forEach((el) => {
-//   if ((ScrollTrigger.isInViewport(el), 1, true)) {
-//     console.log("esu");
-//   } else {
-//     return;
-//   }
-// });
-// if (ScrollTrigger.isInViewport("#about", 0.8, true)) {
-//   document.querySelector("#about").classList.add("fadeout");
-//   // console.log("esu");
-//   // let testt = gsap.timeline();
-//   // testt.to("#about", {
-//   //   autoAlpha: 0,
-//   //   scrollTrigger: {
-//   //     animation: testt,
-//   //     trigger: "#about",
-//   //     start: "top top",
-//   //     end: "bottom bottom",
-//   //   },
-//   // });
-// } else {
-//   document.querySelector("#about").classList.remove("fadeout");
-// }
 </script>
 
 <style scoped>

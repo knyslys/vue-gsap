@@ -66,7 +66,6 @@ onMounted(() => {
       width: "100%",
       left: 0,
       duration: 2.5,
-      // ease: "slow(0.1, 2, false)",
     })
     .to(
       "header",
@@ -81,7 +80,6 @@ onMounted(() => {
     y: 150,
     autoAlpha: 0,
     stagger: 0.15,
-    // ease: "back.out(1.25)",
     ease: "slow(0.5,0.8)",
     backgroundColor: "#000",
     borderRadius: "50px",
@@ -91,7 +89,6 @@ onMounted(() => {
     onComplete: () => {
       jobAnimation.play();
     },
-    // onComplete: () => jobAnimation.play(),
   });
 
   let jobAnimation = gsap.from(splitJob.words, {
@@ -103,8 +100,8 @@ onMounted(() => {
     onComplete: () => checkMyWorks.play(),
   });
 
-  //check my works animation
   let checkMyWorks = gsap.timeline({ paused: true });
+
   checkMyWorks
     .from(".header-bottom span", {
       y: -50,
@@ -128,18 +125,6 @@ onMounted(() => {
         emits("show-main");
       },
     });
-  // let checkMyWorksCircle = gsap.timeline();
-  // checkMyWorksCircle
-  //   .from(".header-bottom .scroll-box", {
-  //     y: 50,
-  //     opacity: 0,
-  //   })
-  //   .to(".header-bottom .scroll-box", {
-  //     y: 0,
-  //     opacity: 1,
-  //     ease: "back.out(2)",
-  //     delay: 2,
-  //   });
 });
 </script>
 
@@ -147,27 +132,11 @@ onMounted(() => {
 .name {
   mask-mode: difference;
 }
-header {
-  /* clip-path: polygon(85% 0, 100% 0, 100% 100%, 85% 100%); */
-  /* clip-path: polygon(
-    0% 0%,
-    0% 100%,
-    25% 100%,
-    25% 25%,
-    75% 25%,
-    75% 75%,
-    25% 75%,
-    25% 100%,
-    100% 100%,
-    100% 0%
-  ); */
-}
+
 .scroll-box--icon {
   transition: 0.3s all linear;
 }
-.box {
-  /* clip-path: polygon(26% 0, 100% 0, 100% 100%, 26% 100%); */
-}
+
 .scroll-box:hover .scroll-box--icon {
   transform: translateY(1px);
 }

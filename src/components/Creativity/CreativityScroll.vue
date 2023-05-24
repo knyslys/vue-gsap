@@ -1,4 +1,3 @@
-vbas
 <template>
   <div class="wrappers bg-zinc-900 relative">
     <div class="container mx-auto">
@@ -6,10 +5,12 @@ vbas
       <h1 class="creativity-logo logo--2 text-6xl">Eagirness</h1>
       <h1 class="creativity-logo logo--3 text-6xl">Excitment</h1>
       <div class="grid grid-cols-1 gap-x-2">
-        <div class="leftd rounded-full opacity-0">
+        <div class="leftd rounded-full opacity-0 z-10">
           <my-picture :drawLines="drawLines"></my-picture>
         </div>
-        <div class="h-80 right flex flex-col gap-y-2 min-h-[2000px]">
+        <div
+          class="right flex flex-col gap-y-2 bg-white absolute w-full left-0 bottom-0"
+        >
           <!-- <div class="bg-green-400 h-40">sdfsdf</div>
           <div class="bg-green-400 h-40">sdfsdf</div>
           <div class="bg-green-400 h-40">sdfsdf</div>
@@ -80,7 +81,7 @@ onMounted(() => {
 
     trigger: ".wrappers",
     start: "top top",
-    end: "bottom center",
+    end: "+=8000px",
     scrub: 1,
   });
 });

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-zinc-50 flex place-items-center relative overflow-hidden">
+  <div class="flex place-items-center relative overflow-hidden">
     <img src="images/me.webp" alt="Picture of me" class="mx-auto opacity-1" />
     <ul>
       <li>Test</li>
@@ -7,9 +7,13 @@
       <li>Test</li>
       <li>Test</li>
     </ul>
-    <div class="line line--bottom h-2 bg-lime-400 absolute bottom-0"></div>
-    <div class="line line--right w-[6px] bg-lime-400 absolute right-0"></div>
-    <div class="line line--left w-[6px] bg-lime-400 absolute left-0"></div>
+    <div class="line line--bottom h-[2px] bg-lime-400 absolute bottom-0"></div>
+    <div
+      class="line line--right w-[3px] bg-gradient-to-b from-transparent from-20% to-lime-400 absolute right-0"
+    ></div>
+    <div
+      class="line line--left w-[3px] bg-gradient-to-b from-transparent from-20% to-lime-400 absolute left-0"
+    ></div>
 
     <img
       src="images/icons/icon-1.png"
@@ -67,6 +71,7 @@ img {
   max-width: 15rem;
   /* max-height: 10rem; */
   display: block;
+  filter: grayscale(1);
   /* max-width: 45rem; */
 }
 </style>
